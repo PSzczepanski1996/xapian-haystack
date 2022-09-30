@@ -1,16 +1,15 @@
-from __future__ import unicode_literals
-
 import datetime
 import pickle
+from pathlib import Path
 import os
 import re
 import shutil
 import sys
 
-from django.utils import six
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
-from django.utils.encoding import force_text
+
+from filelock import FileLock
 
 from haystack import connections
 from haystack.backends import BaseEngine, BaseSearchBackend, BaseSearchQuery, SearchNode, log_query
